@@ -16,6 +16,95 @@ namespace BabySitterTest
             _familyB = new TestConsoleApp.Customer.FamilyB();
             _familyC = new TestConsoleApp.Customer.FamilyC();
         }
+        [Test]
+        public void TestFamilyATotalHours()
+        {
+            DateTime startTime = new DateTime(2019, 10, 1, 17, 0, 0);
+            DateTime endTime = new DateTime(2019, 10, 2, 4, 0, 0);
+            decimal totalPay = Calculator.CalculateTotalPay(_familyA, startTime, endTime);
+            Assert.AreEqual(190.00m, totalPay);
+        }
+
+        [Test]
+        public void TestFamilyA6pmTo2am()
+        {
+            DateTime startTime = new DateTime(2019, 10, 1, 18, 0, 0);
+            DateTime endTime = new DateTime(2019, 10, 2, 2, 0, 0);
+            decimal totalPay = Calculator.CalculateTotalPay(_familyA, startTime, endTime);
+            Assert.AreEqual(135.00m, totalPay);
+        }
+
+        [Test]
+        public void TestFamilyA5pmToMidnight()
+        {
+            DateTime startTime = new DateTime(2019, 10, 1, 17, 0, 0);
+            DateTime endTime = new DateTime(2019, 10, 2, 0, 0, 0);
+            decimal totalPay = Calculator.CalculateTotalPay(_familyA, startTime, endTime);
+            Assert.AreEqual(110.00m, totalPay);
+        }
+
+        [Test]
+        public void TestFamilyAMidnightTo4am()
+        {
+            DateTime startTime = new DateTime(2019, 10, 2, 0, 0, 0);
+            DateTime endTime = new DateTime(2019, 10, 2, 4, 0, 0);
+            decimal totalPay = Calculator.CalculateTotalPay(_familyA, startTime, endTime);
+            Assert.AreEqual(80.00m, totalPay);
+        }
+
+        [Test]
+        public void TestFamilyBTotalHours()
+        {
+            DateTime startTime = new DateTime(2019, 10, 1, 17, 0, 0);
+            DateTime endTime = new DateTime(2019, 10, 2, 4, 0, 0);
+            decimal totalPay = Calculator.CalculateTotalPay(_familyB, startTime, endTime);
+            Assert.AreEqual(140.00m, totalPay);
+        }
+
+        [Test]
+        public void TestFamilyB6pmTo2am()
+        {
+            DateTime startTime = new DateTime(2019, 10, 1, 18, 0, 0);
+            DateTime endTime = new DateTime(2019, 10, 2, 2, 0, 0);
+            decimal totalPay = Calculator.CalculateTotalPay(_familyB, startTime, endTime);
+            Assert.AreEqual(96.00m, totalPay);
+        }
+
+        [Test]
+        public void TestFamilyB5pmToMidnight()
+        {
+            DateTime startTime = new DateTime(2019, 10, 1, 17, 0, 0);
+            DateTime endTime = new DateTime(2019, 10, 2, 0, 0, 0);
+            decimal totalPay = Calculator.CalculateTotalPay(_familyB, startTime, endTime);
+            Assert.AreEqual(76.00m, totalPay);
+        }
+
+        [Test]
+        public void TestFamilyBMidnightTo4am()
+        {
+            DateTime startTime = new DateTime(2019, 10, 2, 0, 0, 0);
+            DateTime endTime = new DateTime(2019, 10, 2, 4, 0, 0);
+            decimal totalPay = Calculator.CalculateTotalPay(_familyB, startTime, endTime);
+            Assert.AreEqual(64.00m, totalPay);
+        }
+
+        [Test]
+        public void TestFamilyC6pmto2am()
+        {
+            DateTime startTime = new DateTime(2019, 10, 1, 18, 0, 0);
+            DateTime endTime = new DateTime(2019, 10, 2, 2, 0, 0);
+            decimal totalPay = Calculator.CalculateTotalPay(_familyC, startTime, endTime);
+            Assert.AreEqual(138.00m, totalPay);
+        }
+
+        [Test]
+        public void TestFamilyCTotalHours()
+        {
+            DateTime startTime = new DateTime(2019, 10, 1, 17, 0, 0);
+            DateTime endTime = new DateTime(2019, 10, 2, 4, 0, 0);
+            decimal totalPay = Calculator.CalculateTotalPay(_familyC, startTime, endTime);
+            Assert.AreEqual(189.00m, totalPay);
+        }
 
         [Test]
         public void TestFamilyC5pmToMidnight()
