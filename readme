@@ -1,0 +1,5 @@
+This repository contains the chronology of code check in.  If you choose to run this:
+
+navigate to ..Source\Repos\TestConsoleApp\TestConsoleApp\bin\Debug\netcoreapp3.0> and execute TestConsoleApp.exe.
+follow the prompts to enter a family letter, start time, and end time
+note the result which is a pay amount
