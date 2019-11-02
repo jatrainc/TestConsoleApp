@@ -1,15 +1,39 @@
 using NUnit.Framework;
 using System;
 using TestConsoleApp.Validators;
+using TestConsoleApp.Calculators;
 namespace BabySitterTest
 {
     public class Tests
     {
+        private TestConsoleApp.Customer.FamilyA _familyA;
+        private TestConsoleApp.Customer.FamilyB _familyB;
+        private TestConsoleApp.Customer.FamilyC _familyC;
         [SetUp]
         public void Setup()
         {
+            _familyA = new TestConsoleApp.Customer.FamilyA();
+            _familyB = new TestConsoleApp.Customer.FamilyB();
+            _familyC = new TestConsoleApp.Customer.FamilyC();
         }
 
+        [Test]
+        public void TestFamilyC5pmToMidnight()
+        {
+            DateTime startTime = new DateTime(2019, 10, 1, 17, 0, 0);
+            DateTime endTime = new DateTime(2019, 10, 2, 0, 0, 0);
+            decimal totalPay = Calculator.CalculateTotalPay(_familyC, startTime, endTime);
+            Assert.AreEqual(129.00m, totalPay);
+        }
+
+        [Test]
+        public void TestFamilyCMidnightTo4am()
+        {
+            DateTime startTime = new DateTime(2019, 10, 2, 0, 0, 0);
+            DateTime endTime = new DateTime(2019, 10, 2, 4, 0, 0);
+            decimal totalPay = Calculator.CalculateTotalPay(_familyC, startTime, endTime);
+            Assert.AreEqual(60.00m, totalPay);
+        }
         [Test]
         public void TestStartTime()
         {
